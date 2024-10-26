@@ -106,10 +106,10 @@ async fn main() {
     let host = if args.len() >= 2 {
         &args[1]
     } else {
-        "localhost:3030"
+        "http://localhost:3030"
     };
 
-    let url = format!("http://{host}");
+    let url = format!("{host}");
     let pool = ThreadPool::new().unwrap();
     let mut block_height = 0;
     let submitted_tx: Arc<RwLock<Option<UnboundedSender<()>>>> = Arc::new(RwLock::new(None));
