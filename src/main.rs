@@ -197,7 +197,7 @@ async fn start_hashing(
     let mut max_threads = 1;
     while max_threads * 2 < num_cpus::get() {
         bits += 1;
-        max_threads = max_threads * 2;
+        max_threads = num_cpus::get();
     }
     println!("bits = {}, max_threads = {}", bits, max_threads);
     for i in 0..max_threads {
